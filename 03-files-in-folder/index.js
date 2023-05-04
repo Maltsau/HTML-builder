@@ -18,7 +18,12 @@ const fs = require("fs");
 const os = require("os");
 const path = require("path");
 
-const promises = fs.promises;
+const { readdir, stat } = fs.promises;
 const folderPath = path.resolve(__dirname, "secret-folder");
-
-
+const filesObj = readdir(folderPath, { withFileTypes: true });
+filesObj.then((files) => {
+  files.forEach((file) => {
+    console.log(file);
+  });
+});
+// console.log(filesObj);
