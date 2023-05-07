@@ -16,7 +16,7 @@ srcFilesObj.then((files) => {
     if (path.extname(filePath) === ".css") {
       const readStream = fs.createReadStream(filePath, "utf-8");
       readStream.on("data", (data) => {
-        writeStream.write(data.toString() + eol);
+        writeStream.write(data + eol);
       });
     }
   });
